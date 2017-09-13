@@ -1,0 +1,197 @@
+		body {
+			font-family: 'Open Sans';
+		}
+		p {
+	margin: 0;
+	color: #fff;
+	font-size: 1vw;
+}
+		a {
+			color: #ececec;
+			font-size: 1vw;
+		}
+		::-webkit-scrollbar {
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.95);
+}
+button {
+	color: #fff;
+	background-color: transparent;
+	text-transform: uppercase;
+	outline: none;
+	cursor: pointer;
+	font-size: 1vw;
+	border: none;
+}
+
+[data-tooltip]:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-tooltip]:before {
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 5px;
+    transform: translateX(-50%);
+    padding: 4px 20px;
+    border-radius: 20px;
+    background: hsla(0, 0%, 0%, 0.5);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 0.8vw;
+    text-transform: uppercase;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s linear;
+    z-index: 1;
+	box-sizing: border-box;
+}
+
+	.close {
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		cursor: pointer;
+		transition: all 0.3s linear;
+	}
+	.close:hover {
+		transform: scale(1.3);
+	}
+	
+.title > img, .title > a  {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.title > img {
+	top: 6.57%;
+	height: 6.39%;
+}
+
+.title > a {
+	top: 13.3%;
+	text-align: center;
+	font-size: 1.2vw;
+	text-transform: uppercase;
+}
+.tabs {
+    display: table;
+    height: 19.32%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.tabs div {
+    position: relative;
+    float: left;
+    margin: 0 12px;
+    height: 100%;
+	cursor: pointer;
+	transition: all 0.25s linear;
+}
+.tabs div.inactive:not(:hover) {
+	opacity: 0.5;
+}
+.tabs div:hover {
+	opacity: 1;
+	transform: scale(1.06);
+}
+.tabs img {
+	position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 26.12%;
+    top: 30%;
+}
+.tabs a {
+    text-transform: uppercase;
+    position: relative;
+    top: 62%;
+}
+
+
+	form {
+	margin: 0;
+}
+
+		ul {
+		    padding: 0;
+			list-style-type: none;
+			margin: 0;
+			cursor: pointer;
+		}
+		
+	.tableContent {
+		position: absolute;
+		width: 100%;
+		height: 90.82%;
+		bottom: 0;
+		overflow-y: auto;
+	}
+	.tableContent::-webkit-scrollbar {
+		width: 0.6%;
+	}
+	.tableHead {
+		position: absolute;
+		width: 99.4%;
+		padding-right: 0.6%;
+		height: 9.17%;
+		top: 0;
+		background-color: rgba(0,0,0,0.4);
+	}
+	.tableHead::after { 
+		content: "";
+		display: block;
+		position: absolute;
+		right: 0;
+        background-color: rgba(0,0,0,0.4);
+        height: 100%;
+        width: 0.6%;
+	}
+	.tableContent > li {
+		position: relative;
+		height: 9.32%;
+		border-bottom: 1px solid rgba(0,0,0,0.5);
+		display: flex;
+	}
+	.tableContent > li:hover div {
+		background-color: rgba(255,255,255,0.7);
+	}
+	.tableContent > li:hover div a {
+		color: #000;
+	}
+	.tableContent > li > div, .tableHead > li > div {
+		float: left;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.tableContent > li > div:not(:last-of-type), .tableHead > li div:not(:last-of-type) {
+		padding-left: 3.47%;
+	}
+	.tableContent > li > div > button {
+		font-size: 0.9vw;
+		width: 60%;
+		height: 63.88%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-color: #63cd63;
+		transition: all 0.5s linear;
+	}
+	.tableContent > li:not(:hover) > div:nth-of-type(odd), .tableHead > li div:nth-of-type(odd) {
+		background-color: rgba(0,0,0,0.3);
+	}
+	.tableContent > li:not(:hover) > div:nth-of-type(even), .tableHead > li div:nth-of-type(even) {
+		background-color: rgba(0,0,0,0.4);
+	}
