@@ -1,0 +1,1099 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<script src='js/jquery.js'></script>
+	<script src="js/index.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='css/default.css' rel='stylesheet' type='text/css'>
+<style>
+		:root {
+		  --colorD: #9d00ff;
+		  --color: rgba(126, 2, 204, 0.85);
+		}
+		body {
+			background: url("gfx/backgrounds/1.png") no-repeat;
+		}
+		.menu {
+			position: absolute;
+			width: 100%;
+			height: 11.71%;
+			bottom: 80.72%;
+			background: rgba(0, 0, 0, 0.4);
+		}
+		.logo {
+			cursor: pointer;
+			position: absolute;
+			left: 5%;
+			height: 80%;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.navigate {
+			position: absolute;
+			width: 57.17%;
+			height: 100%;
+			right: 10.61%;
+		}
+		.navigate > span {
+			position: absolute;
+			width: 9.98%;
+			height: 100%;
+			left: 0px;
+			background: var(--color);
+			transition: all 0.3s ease-in-out;
+		}
+		.menu ul {
+		    position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		.menu ul li {
+			float: left;
+			position: relative;
+			width: 9.98%;
+			height: 100%;
+			transition: all 0.3s ease-in-out;
+		}
+		.menu ul li:not(.active):hover {
+			transform: scale(0.95);
+		}
+		.menu ul li img {
+			position: absolute;
+			height: 32.22%;
+			top: 26.66%;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.menu ul li a {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			bottom: 16%;
+			font-size: 0.9vw;
+		}
+		.announce {
+			position: absolute;
+			left: 6.51%;
+			top: 23.3%;
+			width: 50.95%;
+			height: 47.78%;
+			background-color: rgba(0,0,0,0.6);
+			transition: all 0.25s linear;
+		}
+		.announce:hover {
+			transform: scale(1.015);
+			box-shadow: inset 0 0 0 1px var(--color);
+		}
+		.announce > img {
+			position: absolute;
+			height: 31.60%;
+			top: 10.89%;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.announce > .content {
+			position: absolute;
+			width: 95%;
+			height: 48%;
+			top: 48%;
+			left: 0;
+			right: 0;
+			margin: auto;
+			overflow-y: none;
+		}
+		.announce > .content:hover {
+			overflow-y: auto;
+		}
+		.announce > .content > p {
+			line-height: 1.5;
+			margin-bottom: 25px;
+			text-indent: 1em;
+		}
+		.transfender {
+			position: absolute;
+			left: 58.27%;
+			top: 23.3%;
+			width: 35.21%;
+			height: 23.30%;
+			background-color: rgba(0,0,0,0.6);
+			transition: all 0.25s linear;
+		}
+		.transfender:hover {
+			transform: scale(1.015);
+			box-shadow: inset 0 0 0 1px #bf4744;
+		}
+		.transfender > img {
+		    position: absolute;
+			height: 34.07%;
+			top: 27.37%;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.events > img {
+		    position: absolute;
+			height: 50.83%;
+			top: 6.70%;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.transfender > a, .events > a {
+		    position: absolute;
+			font-size: 1.1vw;
+			top: 68.71%;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+		.transfender > div, .events > div {
+			position: absolute;
+			bottom: 3.91%;
+			height: 10.73%;		
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.transfender > div {
+			background-color: rgba(191, 71, 68, 0.85);
+		}
+		.events > div {
+			background-color: var(--color);
+		}
+		.transfender > .timeLeft, .events > .event {
+			left: 1.66%;
+		}
+		.transfender > .offer, .events > .players {
+			right: 1.66%;
+		}
+		.transfender > div img, .events > div img {
+			position: relative;
+			float: left;
+			height: 71.42%;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		.transfender > div a, .events > div a {
+			position: relative;
+			margin: 0;
+			font-size: 0.9vw;
+			color: #fff;
+			float: left;
+			text-transform: uppercase;
+		}
+		.transfender > div > div, .events > div > div {
+			background-color: #fff;
+			position: relative;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-left: 8px;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+		.transfender > div > div a {
+			color: #bf4744;
+		}
+		.events > div > div a {
+			color: var(--color);
+		}
+		.events {
+			position: absolute;
+			left: 58.27%;
+			top: 47.78%;
+			width: 35.21%;
+			height: 23.30%;
+			background-color: rgba(0,0,0,0.6);
+			transition: all 0.25s linear;
+		}
+		.events:hover {
+			transform: scale(1.015);
+			box-shadow: inset 0 0 0 1px var(--color);
+		}
+		.bonus {
+			position: absolute;
+			left: 0;
+			top: 74.60%;
+			width: 100%;
+			height: 22%;
+			background-color: rgba(0,0,0,0.6);
+		}
+		.bonus > a {
+			position: absolute;
+			font-size: 0.9vw;
+			top: 10%;
+			left: 0;
+			right: 0;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.8);
+		}
+		.bonus > .target {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: 25.44%;
+			height: 53.84%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.bonus > .target > div {
+			vertical-align: top;
+			display: inline-block;
+			text-align: center;
+		}
+		.bonus > .target > div > a {
+			display: block;
+			margin-top: 9.46%;
+			font-size: 0.8vw;
+			color: rgba(255, 255, 255, 0.6);
+		}
+	.profile {
+		position: absolute;
+		width: 24.89%;
+		height: 71.09%;
+		left: 3.44%;
+		top: 23.95%;
+		background-color: rgba(0,0,0,0.25);
+	}
+	.profile > img {
+		position: absolute;
+		height: 31.86%;
+		top: 2.94%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border: 1px solid black;
+		transition: all 0.3s ease-in-out;
+	}
+	.profile > img:hover {
+		border: 1px solid #fff;
+	}
+	.profile > span {
+		display: none;
+		pointer-events: none;
+		color: #fff;
+		background-color: rgba(0,0,0,0.5);
+		padding: 3px 8px;
+		text-transform: uppercase;
+		font-size: 0.8vw;
+	}
+	.profile > a {
+		position: absolute;
+		font-size: 1.5vw;
+		top: 36%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		text-shadow: 1px 1px 0 rgba(0, 0, 0,0.5);
+	}
+	.profile > ul {
+		position: absolute;
+		top: 41.94%;
+		width: 100%;
+		height: 47.43%;
+		cursor: default;
+	}
+	.profile > ul li {
+		height: 14.28%;
+		display: flex;
+		align-items: center;
+	}
+	.profile > ul > li > a {
+		margin-left: 5.88%;
+		font-size: 1.2vw;
+	}
+	.profile > ul > li > a:last-child {
+		position: absolute;
+		right: 5.88%;
+	}
+	.profile > ul li:nth-child(odd) {
+		background-color: rgba(0,0,0,0.4);
+	}
+	.profile > ul li:nth-child(even) {
+		background-color: rgba(0,0,0,0.22);
+	}
+	.profile > button {
+		position: absolute;
+		width: 72.94%;
+		height: 5.49%;
+		bottom: 2.38%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		color: var(--color);
+		border: 1px solid var(--color);
+		transition: all 0.3s linear;
+	}
+	.profile > button:hover {
+		color: var(--colorD);
+		border: 1px solid var(--colorD);
+	}
+
+	.avatarSection {
+		position: absolute;
+		width: 46.48%;
+		height: 33.98%;
+		left: 30.30%;
+		top: 23.95%;
+		background-color: rgba(0,0,0,0.25);
+	}
+
+	.avatarSection > button{
+		position: absolute;
+		border: none;
+		background-color: var(--colorD);
+	}
+	.avatarSection > .select {
+		left: 34.96%;
+		top: 83.14%;
+		width: 30.07%;
+		height: 11.49%;
+		opacity: 0.8;
+	}
+	.avatarSection > .select:hover {
+		opacity: 1;
+	}
+	.avatarSection > .previous,	.avatarSection > .next {
+		top: 83.90%;
+		width: 24.88%;
+		height: 9.96%;
+		opacity: 0.5;
+	}
+	.avatarSection > .previous:hover, .avatarSection > .next:hover {
+		opacity: 0.7;
+	}
+	.avatarSection > .previous, .avatarSection > img:nth-child(1) {
+		left: 8.34%;
+	}
+	.avatarSection > .next, .avatarSection > img:nth-child(3) {
+		left: 67.08%;
+	}
+	.avatarSection > img {
+		position: absolute;
+		top: 14.17%;
+		width: 24.88%;
+		opacity: 0.6;
+		max-height: 59%;
+	}
+	.avatarSection > img.current {
+		width: 27.40%;
+		left: 36.37%;
+		top: 10.34%;
+		opacity: 1;
+		max-height: 66.66%;
+		border: 1px solid #000;
+	}
+	.inventory, .userConfig {
+		position: absolute;
+		width: 46.48%;
+		height: 71.22%;
+		left: 30.30%;
+		top: 23.95%;
+		background-color: rgba(0,0,0,0.25);
+	}
+	.inventory > .slots > div {
+		position: absolute;
+		width: 29.60%;
+		height: 17.91%;
+		background-color: rgba(0,0,0,0.15);
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.34);
+		transition: all 0.3s linear;
+	}
+	.inventory > .slots > div:not(.active):hover {
+		box-shadow: inset 0 0 0 1px rgba(255,255,255,0.9);
+	}
+	.inventory > .slots > .active {
+		background-color: var(--color);
+	}
+	.inventory > .slots > div > a, .inventory > .list > div > a {
+		position: absolute;
+		font-size: 0.9vw;
+	}
+	.inventory > .slots > div > a:nth-of-type(1) {
+		font-size: 0.8vw;
+		text-transform: uppercase;
+		left: 3%;
+		top: 1.5%;
+	}
+	.inventory > .slots > div > a:nth-of-type(2), .inventory > .list > div > a:nth-of-type(1) {
+		left: 3%;
+		bottom: 1.5%;
+	}
+	.inventory > .slots > div > a:nth-of-type(3), .inventory > .list > div > a:nth-of-type(2) {
+		right: 3%;
+		bottom: 1.5%;
+	}
+	.inventory > .slots > div > img, .inventory > .list > div > img {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		max-width: 88.82%;
+		max-height: 66.32%;
+	}
+	.inventory > .slots > div:nth-child(odd) {
+		left: 2.64%;
+	}
+	.inventory > .slots > div:nth-child(even) {
+		left: 32.6%
+	}
+	.inventory > .slots > .head, .inventory > .slots > .melee {
+		top: 22.93%;
+	}
+	.inventory > .slots > .handguns, .inventory > .slots > .projectiles {
+		top: 41.15%;
+	}
+	.inventory > .slots > .submachinesguns, .inventory > .slots > .rifles {
+		top: 59.36%;
+	}
+	.inventory > .slots > .machineguns, .inventory > .slots > .special {
+		top: 77.70%;
+	}
+	.inventory > .list {
+		position: absolute;
+		width: 34.48%;
+		height: 72.57%;
+		right: 3%;
+		top: 22.93%;
+		background-color: rgba(0,0,0,0.3);
+		overflow-y: auto;
+	}
+	.inventory > .list > div {
+		position: relative;
+		width: 85.84%;
+		height: 24.68%;
+		left: 0;
+		right: 0;
+		margin: 2.26% auto 2.26% auto;
+		background-color: rgba(0,0,0,0.15);
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.34);
+		transition: all 0.3s linear;
+	}
+	.inventory > .list > div:not(.active):hover {
+		box-shadow: inset 0 0 0 1px var(--colorD);
+	}
+	.inventory > .list > .active {
+		background-color: var(--color);
+	}
+	.userConfig img {
+		position: absolute;
+	}
+	.userConfig > .content {
+		position: absolute;
+		width: 100%;
+		height: 77.69%;
+		top: 17.91%;
+		background-color: rgba(0,0,0,0.25);
+	}
+	.userConfig > .content > a {
+		position: absolute;
+		left: 10.39%;
+		text-transform: uppercase;
+	}
+	.userConfig > .content > a:nth-of-type(1) {
+		top: 3.65%;
+	}
+	.userConfig > .content > a:nth-of-type(2) {
+		top: 64.70%;
+	}
+	.userConfig > .content > form > div {
+		position: absolute;
+		width: 82.83%;
+		height: 8.47%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border-radius: 2px;
+		background-color: rgba(0,0,0,0.2);
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5);
+	}
+	.userConfig > .content > form > div:nth-of-type(1) {
+		top: 10.82%;
+	}
+	.userConfig > .content > form > div:nth-of-type(2) {
+		top: 21.88%;
+	}
+	.userConfig > .content > form > div:nth-of-type(3) {
+		top: 32.94%;
+	}
+	.userConfig > .content > form > div > img {
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+	.userConfig > .content > form > div:nth-of-type(1) > img {
+		left: 2.8%;
+		height: 69.44%;
+	}
+	.userConfig > .content > form > div:nth-of-type(2) > img {
+		left: 3.2%;
+		height: 72.22%;
+	}
+	.userConfig > .content > form > div:nth-of-type(3) > img {
+		left: 3.04%;
+		height: 52.77%;
+	}
+	.userConfig > .content input, .userConfig button {
+		position: absolute;
+		margin:0;
+		border:0;
+		padding:0;
+		outline: 0;
+		font-size: 1vw;
+	}
+	.userConfig > .content input {
+		padding-left: 10.6%;
+		width: 100%;
+		height: 100%;
+		border-radius: 2px;
+		transition: all 0.3s linear;
+	}
+	input:focus {
+		box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+	}
+	.userConfig button {
+		width: 82.83%;
+		height: 7.05%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-color: var(--color);
+		transition: all 0.3s linear;
+	}
+	.userConfig > .content > form > button {
+		top: 47.05%;
+	}
+	.userConfig > .content > button {
+		top: 87.52%;
+	}
+	.userConfig button:hover {
+		opacity: 0.9;
+	}
+	.userConfig > .content > .stats {
+		position: absolute;
+		width: 82.83%;
+		height: 8.47%;
+		top: 73.17%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border-radius: 2px;
+		background-color: rgba(0,0,0,0.2);
+	}
+	.userConfig > .content > .stats > div {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5);
+		display: flex;
+		align-items: center;
+	}
+	.userConfig > .content > .stats > div:nth-of-type(1) {
+		left: 0;
+	}
+	.userConfig > .content > .stats > div:nth-of-type(2) {
+		right: 0;
+	}
+	.userConfig > .content > .stats > div:not(.title) > img {
+		position: absolute;
+		left: 4.92%;
+		height: 72.22%;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+	.userConfig > .content > .stats > div > a {
+		position: absolute;
+		left: 22.34%;
+	}
+	.MODS {
+		position: absolute;
+		background-color: rgba(0,0,0,0.25);
+		width: 73.64%;
+		height: 73.43%;
+		top: 23.95%;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.MODS > .title > img, .PROPERTIES > .title > img {
+		height: 5.14%;
+	}
+	.MODS > .title > a, .PROPERTIES > .title > a {
+		top: 12%;
+	}
+	.MODS > .content, .PROPERTIES > .content, .RANKING > .content {
+		position: absolute;
+		width: 100%;
+		height: 75.35%;
+		top: 19.32%;
+	}
+	.MODS > .content > .tableContent > li > div:nth-child(1), .MODS > .content > .tableHead > li div:nth-child(1) {
+		text-transform: uppercase;
+		width: 16.51%;
+	}
+	.MODS > .content > .tableContent > li > div:nth-child(2), .MODS > .content > .tableHead > li div:nth-child(2)  {
+		width: 28.63%;
+	}
+	.MODS > .content > .tableContent > li > div:nth-child(3), .MODS > .content > .tableHead > li div:nth-child(3)  {
+		width: 28.53%;
+	}
+	.MODS > .content > .tableContent > li > div:nth-child(4), .MODS > .content > .tableHead > li div:nth-child(4)  {
+		width: 15.90%;
+	}
+	.PROPERTIES {
+		position: absolute;
+		background-color: rgba(0,0,0,0.25);
+		width: 85.21%;
+		height: 73.43%;
+		top: 23.95%;
+		left: 0;
+		right: 0;
+		margin: auto;
+	
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(1), .PROPERTIES > .content > .tableHead > li div:nth-child(1) {
+		width: 24.27%;
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(2), .PROPERTIES > .content > .tableHead > li div:nth-child(2)  {
+		width: 9.76%;
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(3), .PROPERTIES > .content > .tableHead > li div:nth-child(3)  {
+		width: 9.76%;
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(4), .PROPERTIES > .content > .tableHead > li div:nth-child(4)  {
+		width: 9.84%;
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(5), .PROPERTIES > .content > .tableHead > li div:nth-child(5)  {
+		width: 16.63%;
+	}
+	.PROPERTIES > .content > .tableContent > li > div:nth-child(6), .PROPERTIES > .content > .tableHead > li div:nth-child(6)  {
+		width: 12.37%;
+	}
+
+	.RANKING {
+		position: absolute;
+		background-color: rgba(0,0,0,0.25);
+		width: 74.01%;
+		height: 73.43%;
+		top: 23.95%;
+		left: 0;
+		right: 0;
+		margin: auto;
+	
+	}
+	.RANKING .tableContent > li {
+		height: 9.09%;
+		border: none;
+		box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.5);
+	}
+	.RANKING .tableContent > li:last-of-type:not(:hover) div {
+		background-color: rgba(126, 2, 204, 0.5);
+		box-shadow: inset 0 1px 0 0 #000;
+	}
+	.RANKING .tableContent > li:first-of-type:not(:hover) div {
+		background-color: rgba(220,166,0,0.5);
+		box-shadow: inset 0 1px 0 0 #000;
+	}
+	.RANKING .tableContent > li:nth-of-type(2):not(:hover) div {
+		background-color: rgba(200,200,200,0.5);
+		box-shadow: inset 0 1px 0 0 #000;
+	}
+	.RANKING .tableContent > li:nth-of-type(3):not(:hover) div {
+		background-color: rgba(134, 78, 22,0.5);
+		box-shadow: inset 0 1px 0 0 #000;
+	}
+	.RANKING > .content > .tableContent > li > div:last-of-type, .tableHead > li div:last-of-type {
+		padding-left: 3.47%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(1), .RANKING > .content > .tableHead > li div:nth-child(1) {
+		width: 7.5%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(2), .RANKING > .content > .tableHead > li div:nth-child(2)  {
+		width: 16.7%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(3), .RANKING > .content > .tableHead > li div:nth-child(3)  {
+		width: 19.18%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(4), .RANKING > .content > .tableHead > li div:nth-child(4)  {
+		width: 11.46%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(5), .RANKING > .content > .tableHead > li div:nth-child(5)  {
+		width: 11.46%;
+	}
+	.RANKING > .content > .tableContent > li > div:nth-child(6), .RANKING > .content > .tableHead > li div:nth-child(6)  {
+		width: 12.85%;
+	}
+	
+</style>
+</head>
+<body>
+	<div class="menu">
+		<img class="logo" src="gfx/logo/logo.png">
+		<div class="navigate">
+			<span></span>
+			<ul>
+				<li class="active">
+					<img src="gfx/icons/home.png">
+					<a>HOME</a>
+				</li>
+				<li>
+					<img src="gfx/icons/user.png">
+					<a>ACCOUNT</a>
+				</li>
+				<li>
+					<img src="gfx/icons/gang.png">
+					<a>GANGS</a>
+				</li>
+				<li>
+					<img src="gfx/icons/vehicle.png">
+					<a>VEHICLES</a>
+				</li>
+				<li>
+					<img src="gfx/icons/mods.png">
+					<a>MODS</a>
+				</li>
+				<li>
+					<img src="gfx/icons/propertie.png">
+					<a>PROPS</a>
+				</li>
+				<li>
+					<img src="gfx/icons/vip.png">
+					<a>VIP</a>
+				</li>
+				<li>
+					<img src="gfx/icons/star.png">
+					<a>RANKING</a>
+				</li>
+				<li>
+					<img src="gfx/icons/info.png">
+					<a>INFO</a>
+				</li>
+				<li>
+					<img src="gfx/icons/conf.png">
+					<a>CONFIGS</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="HOME" style="display: none;">
+		<div class="announce">
+			<img src="gfx/logo/logo_2.0.png">
+			<div class="content">
+			<p>Welcome to Imperial Network GangWar! If you like to wage wars while making up your own tactics you are at the right place. Climb your way to the top and lead your gang to victory. Have no mercy over your opponents and let them know that you are the boss. Use a wide range of weaponry and special combat vehicles to destroy anyone that stands in your way. Get as much as you can as that will determine your benefits. Do not hesitate to use anything on your disposal, because, as they say, everything is allowed in love and wars. Again, we all welcome you and we hope that you have a "rough" time playing!</p>
+			</div>
+		</div>
+		<div class="transfender">
+			<img src="gfx/transfender/on.png"/>
+			<a>A exportadora Transfender LV está comprando um Alpha.</a>
+			<div class="timeLeft">
+				<img src="gfx/icons/clock.png">
+				<a class="title">Tempo restante</a>
+				<div>
+					<a>04:42</a>
+				</div>
+			</div>
+			<div class="offer">
+				<img src="gfx/icons/offer.png">
+				<a class="title">Oferta</a>
+				<div>
+					<a>$55000</a>
+				</div>
+			</div>
+		</div>
+		<div class="events">
+			<img src="gfx/events/on.png"/>
+			<a>O evento já foi iniciado, não é possivel entrar agora.</a>
+			<div class="event">
+				<img src="gfx/icons/event.png">
+				<a class="title">Evento</a>
+				<div>
+					<a>Race</a>
+				</div>
+			</div>
+			<div class="players">
+				<img src="gfx/icons/gang.png">
+				<a class="title">Jogadores</a>
+				<div>
+					<a>25</a>
+				</div>
+			</div>
+		</div>
+		<div class="bonus">
+			<a>Volte amanhã para receber seu bônus!</a>
+			<div class="target">
+				<div>
+					<img src="gfx/bonus/current.png">
+					<a style="color: var(--colorD);">Dia 1</a>
+				</div>
+				<div>
+					<img src="gfx/bonus/next.png">
+					<a>Dia 2</a>
+				</div>
+				<div>
+					<img src="gfx/bonus/bonus.png">
+					<a>Dia 3</a>
+				</div>
+				<div>
+					<img src="gfx/bonus/bonus.png">
+					<a>Dia 4</a>
+				</div>
+				<div>
+					<img src="gfx/bonus/last.png">
+					<a style="margin-top: 4.14%;">Super Bônus</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ACCOUNT" style="display: none;">
+		<div class="profile">
+			<img src="gfx/avatars/1.png">
+			<span>Mudar avatar</span>
+			<a>Banex</a>
+			<ul>
+				<li>
+					<a>Gang:</a>
+					<a>☠ H.Y.D.R.A ☠</a>
+				</li>
+				<li>
+					<a>Level:</a>
+					<a>Lider</a>
+				</li>
+				<li>
+					<a>Banco:</a>
+					<a>$8.668,87</a>
+				</li>
+				<li>
+					<a>Diamantes:</a>
+					<a>98</a>
+				</li>
+				<li>
+					<a>Kills:</a>
+					<a>268</a>
+				</li>
+				<li>
+					<a>Deaths:</a>
+					<a>116</a>
+				</li>
+				<li>
+					<a>Tempo de jogo:</a>
+					<a>11D 4H</a>
+				</li>
+			</ul>
+			<button>Editar informações pessoais</button>
+		</div>
+		<div class="avatarSection" style="display: none;">
+			<img src="gfx/avatars/30.png">
+			<img class="current" src="gfx/avatars/1.png">
+			<img src="gfx/avatars/2.png">
+			<button class="previous">Anterior</button>
+			<button class="select">Selecionar</button>
+			<button class="next">Proximo</button>
+			<p class="close">✖</p>
+		</div>
+		<div class="inventory">
+			<div class="title">
+				<img src="gfx/icons/inventory.png"/>
+				<a>Inventário</a>
+			</div>
+			<div class="slots">
+				<div class="head">
+					<a>Head</a>
+					<img src="gfx/masks/anonymous.png"/>
+					<a>Anonymous</a>
+				</div>
+				<div class="melee">
+					<a>Melee</a>
+					<img src="gfx/weapons/8.png"/>
+					<a>Katana</a>
+				</div>
+				<div class="handguns">
+					<a>Handguns</a>
+					<img src="gfx/weapons/24.png"/>
+					<a>Desert Eagle</a>
+					<a>1408</a>
+				</div>
+				<div class="projectiles active">
+					<a>Projectiles</a>
+					<img src="gfx/weapons/16.png"/>
+					<a>Granade</a>
+					<a>9</a>
+				</div>
+				<div class="submachinesguns">
+					<a>Sub-Machines-Guns</a>
+					<img src="gfx/weapons/32.png"/>
+					<a>TEC-9</a>
+					<a>138</a>
+				</div>
+				<div class="rifles">
+					<a>Rifles</a>
+					<img src="gfx/weapons/34.png"/>
+					<a>Sniper</a>
+					<a>999</a>
+				</div>
+				<div class="machineguns">
+					<a>Machine-Guns</a>
+					<img src="gfx/weapons/31.png"/>
+					<a>M4</a>
+					<a>121</a>
+				</div>
+				<div class="special">
+					<a>Special</a>
+				</div>
+			</div>
+			<div class="list">
+				<div>
+					<img src="gfx/weapons/18.png"/>
+					<a>Motolov</a>
+					<a>4</a>
+				</div>
+				<div>
+					<img src="gfx/weapons/17.png"/>
+					<a>Teargas</a>
+					<a>1</a>
+				</div>
+				<div class="active">
+					<img src="gfx/weapons/16.png"/>
+					<a>Granade</a>
+					<a>9</a>
+				</div>
+			</div>
+		</div>
+		<div class="userConfig" style="display: none;">
+			<div class="title">
+				<img src="gfx/icons/pen.png"/>
+				<a>Editar Informações</a>
+			</div>
+			<p class="close">✖</p>
+			<div class="content">
+				<a>Conta</a>
+				<form method="POST">
+					<div data-tooltip="Usuário">
+						<img src="gfx/icons/user.png"/>
+						<input type="text" placeholder="Username" maxlength="15" minlength="3" required>
+					</div>
+					<div data-tooltip="Senha">
+						<img src="gfx/icons/lock.png"/>
+						<input type="password" placeholder="Password" maxlength="30" minlength="6" required>
+					</div>
+					<div data-tooltip="Email">
+						<img src="gfx/icons/email.png"/>
+						<input type="email" placeholder="Email"  maxlength="30" minlength="5" required>
+					</div>
+					<button type="submit">Salvar</button>
+				</form>
+				<a>Stats</a>
+				<div class="stats">
+					<div data-tooltip="Kills">
+						<img src="gfx/icons/pistol.png"/>
+						<a>268</a>
+					</div>
+					<div data-tooltip="Deaths">
+						<img src="gfx/icons/skull.png"/>
+						<a>116</a>
+					</div>
+				</div>
+				<button>Resetar K/D</button>
+			</div>
+		</div>
+	</div>
+	<div class="MODS" style="display: none;">
+		<div class="title">
+			<img src="gfx/icons/mods.png"/>
+			<a>Mods</a>
+		</div>
+		<div class="content">
+			<ul class="tableHead">
+				<li>
+					<div><a>Tipo</a></div>
+					<div><a>Nome</a></div>
+					<div><a>Substitui</a></div>
+					<div></div>
+				</li>
+			</ul>
+			<ul class="tableContent">
+				<li>
+					<div><a>Carro</a></div>
+					<div><a>Lamborghini</a></div>
+					<div><a>Infernus</a></div>
+					<div><button>Ativar</button></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="PROPERTIES" style="display: none;">
+		<div class="title">
+			<img src="gfx/icons/propertie.png"/>
+			<a>Properties</a>
+		</div>
+		<div class="content">
+			<ul class="tableHead">
+				<li>
+					<div><a>Nome</a></div>
+					<div><a>Dono</a></div>
+					<div><a>Preço</a></div>
+					<div><a>Lucro</a></div>
+					<div><a>Localização</a></div>
+					<div></div>
+				</li>
+			</ul>
+			<ul class="tableContent">
+				<li>
+					<div><a>Las Venturas Bandits Stadion</a></div>
+					<div><a>Banex</a></div>
+					<div><a>$135.000</a></div>
+					<div><a>$13.500</a></div>
+					<div><a>Las Venturas</a></div>
+					<div><button>Comprar</button></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="RANKING" style="display: none;">
+		<div class="tabs">
+			<div class="inactive">
+				<img src="gfx/icons/skull.png"/>
+				<a>TOP Deaths</a>
+			</div>
+			<div>
+				<img src="gfx/icons/pistol.png"/>
+				<a>TOP Kills</a>
+			</div>
+			<div class="inactive">
+				<img src="gfx/icons/money.png"/>
+				<a>TOP Money</a>
+			</div>
+		</div>
+		<div class="content">
+			<ul class="tableHead">
+				<li>
+					<div><a>Ranking</a></div>
+					<div><a>Nome</a></div>
+					<div><a>Gang</a></div>
+					<div><a>Kills</a></div>
+					<div><a>Deaths</a></div>
+					<div><a>Money</a></div>
+				</li>
+			</ul>
+			<ul class="tableContent">
+				<li>
+					<div><a>1</a></div>
+					<div><a>Banex</a></div>
+					<div><a>• H.Y.D.R.A •</a></div>
+					<div><a>1332</a></div>
+					<div><a>456</a></div>
+					<div><a>$22.166.849</a></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
